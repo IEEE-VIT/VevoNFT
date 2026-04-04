@@ -1,16 +1,14 @@
 # VevoNFT
 
-# NFT-Share: Blockchain-Based NFT Project
-
-**NFT-Share** is a Solidity-based repository featuring **ERC-721** smart contracts designed for the creation, deployment, and sharing of NFTs. This project is optimized for the **Sepolia Ethereum Test Network** using **Remix IDE** and **MetaMask**. It serves as a comprehensive guide for users to understand the lifecycle of Non-Fungible Tokens, from minting unique digital assets to managing ownership transfers on a live test network.
+**VevoNFT** is a Solidity-based repository featuring **ERC-721** smart contracts designed for the creation, deployment, and sharing of NFTs. This project integrates **Pinata** for decentralized storage, allowing users to link their NFTs to unique digital assets via **CID Hashes**. It is optimized for the **Sepolia Ethereum Test Network** using **Remix IDE** and **MetaMask**.
 
 ## Features
 
 * **ERC-721 NFT Implementation:** Standardized Solidity contracts for unique digital assets.
-* **Minting & Sharing Logic:** Built-in functions to create new tokens and transfer them between users.
-* **Remix-Ready Functions:** Interactive buttons within the IDE to trigger actions like `mint`, `approve`, and `transfer`.
+* **IPFS Content Addressing:** Integration of Pinata CID hashes to link NFTs to media files (images, videos, etc.).
+* **Minting & Sharing Logic:** Functions to create new tokens with specific metadata and transfer them between users.
+* **Remix-Ready Functions:** Interactive buttons within the IDE to trigger actions like `mint` (with CID input), `approve`, and `transfer`.
 * **Sepolia Testnet Integration:** Fully compatible with Ethereum's Sepolia network for risk-free testing.
-* **MetaMask Support:** Real-time transaction signing and asset management via the MetaMask browser extension.
 
 ---
 
@@ -22,42 +20,43 @@
 * Navigate to **Settings > Advanced** and enable **Show Test Networks**.
 * Select **Sepolia** from the network dropdown menu.
 
-### 2. Sepolia Ethereum Faucet
+### 2. Upload Assets to Pinata
+* Go to [Pinata.cloud](https://www.pinata.cloud/) and create an account.
+* Upload your file (Image/Video/JSON) using the **Upload** button.
+* Once uploaded, copy the **CID (Content Identifier)** hash. You will use this hash during the minting process to link your NFT to the file.
+
+### 3. Sepolia Ethereum Faucet
 * Navigate to a Sepolia Faucet (such as the **Google Cloud Faucet** or **Alchemy**) to obtain test ETH.
 * Enter your wallet address and complete the required steps to receive your funds.
 
-### 3. Open Remix IDE
+### 4. Open Remix IDE
 * Go to [https://remix.ethereum.org](https://remix.ethereum.org).
 * Create a new workspace.
-* **Create File 1:** Name it `NftShare.sol` and paste your NFT contract code (ensure the contract name matches your chosen file name).
-* **Create File 2:** Name it `IERC721.sol` (or the relevant interface name) to support the NFT standard.
+* **Create File 1:** Name it `NftShare.sol` and paste your NFT contract code (ensure your `mint` function accepts a `string` for the CID).
+* **Create File 2:** Name it `IERC721.sol` to support the NFT standard.
 
-### 4. Compile the Contract
-* Select the **Solidity Compiler** tab.
-* Ensure the compiler version matches your code.
-* Click **Compile NftShare.sol**.
-
-### 5. Deploy the Contract
+### 5. Compile and Deploy
+* Select the **Solidity Compiler** tab and click **Compile NftShare.sol**.
 * Open the **Deploy & Run Transactions** tab.
 * Set the **Environment** to **Injected Provider – MetaMask**.
-* Confirm the connection request in the MetaMask popup.
-* Ensure your network is set to **Sepolia Test Network**.
 * Click **Deploy** and confirm the transaction fee in MetaMask.
-* Once deployed, interact with your NFT functions (mint, transfer) directly in the Remix sidebar.
 
-### 6. Confirming the Transaction
-To verify that your NFT has been added to the blockchain:
+### 6. Minting with CID Hash
+* In the **Deployed Contracts** section, locate your `mint` or `createToken` function.
+* Paste the **CID Hash** you copied from Pinata into the `tokenURI` or `metadata` field.
+* Click **Transact** and confirm in MetaMask. Your NFT is now live and linked to your IPFS content!
+
+### 7. Confirming the Transaction
 * Go to [https://sepolia.etherscan.io](https://sepolia.etherscan.io).
-* Copy and paste your **Deployed Contract Address** into the search bar.
-* Review the "Tokens" and "Transactions" tabs to see your minted NFTs.
+* Paste your **Deployed Contract Address** to see your minted NFTs and verify the transaction history.
 
 ---
 
 ## Tech Stack
 
 * **Solidity:** Smart contract language.
+* **Pinata (IPFS):** Decentralized storage for NFT media and metadata.
 * **Remix IDE:** Web-based development environment.
 * **Ethereum Sepolia:** Test blockchain network.
 * **MetaMask Wallet:** Digital wallet for transaction signing.
-* **ERC-721 Standard:** The protocol for Non-Fungible Tokens.
-* **Sepolia Etherscan:** Blockchain explorer for verifying transactions.
+* **ERC-721 Standard:** Protocol for Non-Fungible Tokens.
