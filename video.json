@@ -1,4 +1,19 @@
 {
-    "name":"IMG_5152.MOV",
-    "video":"ipfs://bafybeiadujq4jgq5rvqlxbpqmcct2ts3lgppccacndapnc5pnr2opkxffi"
+    "name": "IMG_5152",
+    "description": "A video NFT minted on the Sepolia Ethereum Testnet via VevoNFT.",
+    "animation_url": "ipfs://bafybeiadujq4jgq5rvqlxbpqmcct2ts3lgppccacndapnc5pnr2opkxffi",
+    "attributes": [
+    {
+      "trait_type": "Media Type",
+      "value": "Video"
+    },
+    {
+      "trait_type": "File Format",
+      "value": "MOV"
+    },
+    {
+      "trait_type": "Network",
+      "value": "Sepolia"
+    }
+  ]
 }
