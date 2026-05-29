@@ -48,7 +48,6 @@ VevoNFT/
 * Go to [https://remix.ethereum.org](https://remix.ethereum.org).
 * Create a new workspace.
 * **Create File 1:** Inside a `contracts/` folder, name it `MediaToken.sol` and paste the contents of `contracts/MediaToken.sol` from this repository.
-* **Create File 2:** Add `IERC721.sol` to the same `contracts/` folder to support the NFT standard.
 
 ### 5. Compile and Deploy
 * Select the **Solidity Compiler** tab and click **Compile MediaToken.sol**.
